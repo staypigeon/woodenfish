@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电子木鱼</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="merit-count">功德：0</div>
+        <img src="woodenfish.png" id="woodenfish" alt="木鱼">
+        <div id="blessing-container"></div>
+    </div>
+
+    <script>
+        const woodenfish = document.getElementById('woodenfish');
+        const meritCount = document.getElementById('merit-count');
+        const blessingContainer = document.getElementById('blessing-container');
+        let count = 0;
+
+        const blessings = [
+            "恭喜发财",
+            "年薪+100万",
+            "身体健康",
+            "绩点拉满",
+            "功德+1"
+        ];
+
+        woodenfish.addEventListener('click', () => {
+            count++;
+            meritCount.textContent = `功德：${count}`;
+            
+            // 播放敲击音效
+            const audio = new Audio('dong.mp3');
+            audio.play();
+            
+            // 创建祝福文字
+            const blessing = document.createElement('div');
+            blessing.className = 'blessing';
+            blessing.textContent = blessings[Math.floor(Math.random() * blessings.length)];
+            
+            // 移除随机位置，改为固定位置
+            blessing.style.left = '50%';
+            blessing.style.transform = 'translateX(-50%)';
+            blessing.style.bottom = '100%';
+            
+            woodenfish.parentElement.appendChild(blessing);
+            
+            // 动画结束后移除元素
+            setTimeout(() => {
+                blessing.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 

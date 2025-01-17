@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Microsoft YaHei', sans-serif;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+#woodenfish {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#woodenfish:active {
+    transform: scale(0.95);
+}
+
+#merit-count {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.blessing {
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+    pointer-events: none;
+    animation: float 1s ease-out forwards;
+    white-space: nowrap;
+}
+
+@keyframes float {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50px);
+    }
+} 

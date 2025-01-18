@@ -1,7 +1,9 @@
+/* 基础页面样式设置 */
 body {
     margin: 0;
     padding: 0;
     background-color: #000;
+    /* 使用 flex 布局使内容居中 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,37 +11,44 @@ body {
     font-family: 'Microsoft YaHei', sans-serif;
 }
 
+/* 木鱼容器样式 */
 .container {
     text-align: center;
-    position: relative;
+    position: relative;  /* 用于祝福文字的绝对定位参考 */
 }
 
+/* 木鱼图片样式 */
 #woodenfish {
     width: 200px;
     height: auto;
     cursor: pointer;
+    /* 添加点击动画过渡效果 */
     transition: transform 0.1s;
 }
 
+/* 木鱼点击效果 */
 #woodenfish:active {
-    transform: scale(0.95);
+    transform: scale(0.95);  /* 点击时缩小到95% */
 }
 
+/* 功德计数器样式 */
 #merit-count {
     color: #fff;
     font-size: 24px;
     margin-bottom: 20px;
 }
 
+/* 祝福文字样式 */
 .blessing {
     position: absolute;
     color: #fff;
     font-size: 20px;
-    pointer-events: none;
-    animation: float 1s ease-out forwards;
-    white-space: nowrap;
+    pointer-events: none;  /* 防止文字影响点击事件 */
+    animation: float 1s ease-out forwards;  /* 添加向上飘动动画 */
+    white-space: nowrap;  /* 防止文字换行 */
 }
 
+/* 定义祝福文字的飘动动画 */
 @keyframes float {
     0% {
         opacity: 1;
@@ -47,6 +56,6 @@ body {
     }
     100% {
         opacity: 0;
-        transform: translateX(-50%) translateY(-50px);
+        transform: translateX(-50%) translateY(-50px);  /* 向上移动50像素并淡出 */
     }
 } 

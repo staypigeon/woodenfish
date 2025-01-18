@@ -14,11 +14,14 @@
     </div>
 
     <script>
+        // 获取DOM元素
         const woodenfish = document.getElementById('woodenfish');
         const meritCount = document.getElementById('merit-count');
         const blessingContainer = document.getElementById('blessing-container');
+        // 初始化功德计数器
         let count = 0;
 
+        // 定义可能出现的祝福语数组
         const blessings = [
             "恭喜发财",
             "年薪+100万",
@@ -27,7 +30,9 @@
             "功德+1"
         ];
 
+        // 为木鱼添加点击事件监听器
         woodenfish.addEventListener('click', () => {
+            // 增加功德计数
             count++;
             meritCount.textContent = `功德：${count}`;
             
@@ -35,19 +40,21 @@
             const audio = new Audio('dong.mp3');
             audio.play();
             
-            // 创建祝福文字
+            // 创建祝福文字元素
             const blessing = document.createElement('div');
             blessing.className = 'blessing';
+            // 随机选择一条祝福语
             blessing.textContent = blessings[Math.floor(Math.random() * blessings.length)];
             
-            // 移除随机位置，改为固定位置
+            // 设置祝福文字的位置（居中于木鱼上方）
             blessing.style.left = '50%';
             blessing.style.transform = 'translateX(-50%)';
             blessing.style.bottom = '100%';
             
+            // 将祝福文字添加到容器中
             woodenfish.parentElement.appendChild(blessing);
             
-            // 动画结束后移除元素
+            // 1秒后移除祝福文字元素
             setTimeout(() => {
                 blessing.remove();
             }, 1000);
